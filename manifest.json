@@ -1,0 +1,35 @@
+{
+    "name": "YunTech Teaching Evaluation Automatic Filler",
+    "description": "Simplify your YunTech teaching evaluation process with one-click automation",
+    "version": "1.0.0",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_title": "Click to Auto fill",
+        "default_popup": "popup.html"
+    },
+    "icons": {
+        "16": "./32x32.png",
+        "32": "./32x32.png",
+        "48": "./32x32.png",
+        "128": "./32x32.png"
+    },
+    "permissions": [
+        "history",
+        "storage",
+        "scripting",
+        "activeTab"
+    ],
+    "host_permissions": [
+        "https://webapp.yuntech.edu.tw/WebNewCAS/TeachSurvey/Survey/*"
+    ],
+    "content_scripts": [
+        {
+            "matches": ["https://webapp.yuntech.edu.tw/WebNewCAS/TeachSurvey/Survey/*"],
+            "js": ["content.js"],
+            "run_at": "document_end"
+        }
+    ]
+}
